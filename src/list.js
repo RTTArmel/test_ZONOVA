@@ -27,8 +27,6 @@ class Home extends React.Component {
     componentDidMount() {
         axios.get("http://localhost:8080/data.json").then(res => {
             this.setState({ content: res.data })
-            console.log('content: ', this.state.content);
-
             var table = []
             for (let i = 0; i < res.data.length; i++) {
                 table.push(res.data[i].genre)
@@ -52,10 +50,7 @@ class Home extends React.Component {
 
     friday = () => {
         axios.get("http://localhost:8080/data.json").then(res => {
-            var dt = new Date(2019, 9, 0)
-            console.log('date:', dt.getDay());
             var test = res.data.filter(filtered => new Date(filtered.date).getDay() === 5 && new Date(new Date(filtered.date).getFullYear(), new Date(filtered.date).getMonth() + 1, 0).getDate() - 6 < new Date(filtered.date).getDate() && filtered.genre === 'Finance')
-            console.log('test:', test);
             this.setState({ content: test })
         })
     }
@@ -232,9 +227,4 @@ class Home extends React.Component {
 }
 
 
-// const mapStateToProps = (state) => {
-//     return {
-//         client: state
-//     }
-// }
-export default Home /* connect(mapStateToProps)(Home) */
+export default Home
