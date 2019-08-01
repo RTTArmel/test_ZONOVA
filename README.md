@@ -27,7 +27,7 @@ To launch this application:
 6. Install the necessary dependencies--------------$> npm install --save
 
 7. Launch http-server------------------------------$> http-server ./public --cors=http://localhost:3000
-    This command enables the connection with the http-server and allows access to the data.json file (as a database) in the public folder
+.This command enables the connection with the http-server and allows access to the data.json file (as a database) in the public folder
 
 8. open a new terminal and launch the application--$> sudo npm start
 
