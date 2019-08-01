@@ -48,6 +48,7 @@ class Home extends React.Component {
         return out;
     }
 
+    //SELECT ALL BOOKS PUBLISHED ON THE LAST FRIDAY OF ANY MONTH
     friday = () => {
         axios.get("http://localhost:8080/data.json").then(res => {
             var test = res.data.filter(filtered => new Date(filtered.date).getDay() === 5 && new Date(new Date(filtered.date).getFullYear(), new Date(filtered.date).getMonth() + 1, 0).getDate() - 6 < new Date(filtered.date).getDate() && filtered.genre === 'Finance')
@@ -55,6 +56,7 @@ class Home extends React.Component {
         })
     }
 
+    //SHOW BOOKS IN THE "HORROR" GENRE, PUBLISHED ON HALLOWEEN
     halloween = () => {
         axios.get("http://localhost:8080/data.json").then(res => {
             var test = res.data.filter(filtered => filtered.date.split('/')[2] === '31' && filtered.date.split('/')[1] === '10' && filtered.genre === 'Horror')
@@ -62,6 +64,7 @@ class Home extends React.Component {
         })
     }
 
+    //REST OF FUNCTIONALITIES
     search() {
         axios.get("http://localhost:8080/data.json").then(res => {
             var test = []
@@ -134,6 +137,7 @@ class Home extends React.Component {
         })
     }
 
+//DISPLAYS
     render() {
         return (
             <div>
